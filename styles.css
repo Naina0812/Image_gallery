@@ -1,0 +1,80 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+#wrapper{
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.container{
+    height: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    /* left and right side me margin is tarah lagaya jaata hai ki content center me aa jaye  */
+    padding: 20px;
+}
+
+.container h1{
+    margin: 20px 0;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 3rem;
+}
+
+.gallery{
+    display: flex;
+    flex-wrap: wrap;
+    /* isse agar item same row me place nai ho paayenge to ve niche aa jaayenge ,since overflow -x hidden hai to agar felx wrap use nai karenge to saare item ek hi row me placed ho jaayenge aur hume nai dikhenge  */
+    justify-content: space-between;
+}
+.card{
+   width: 32%; 
+   /* 32+32+32=96; 4  is for spacing between them */
+   position: relative;
+   margin-bottom: 20px;
+   border-radius: 10px;
+   overflow: hidden;
+}
+
+.card img{
+ width: 100%;
+ height: 100%;
+ /* ye karne par img apne parent element  i.e card ke equal width ka ho jaayega  */
+ filter: grayscale(100%);
+ box-shadow: 0 0 20px  #333;
+ object-fit: cover;
+}
+
+.card:hover{
+    transform: scale(1.03);
+    transition: 0.5s;
+    filter: drop-shadow(0 0 10px #333);
+}
+
+.card:hover img{
+    filter: grayscale(0%);
+}
+
+.card figcaption{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 25px;
+    width: 100%;
+    height: 20%;
+    font-size: 16px;
+    font-weight: 500;
+    color: #fff;
+    opacity: 0;
+    border-radius: 0 0 10px 10px;
+    background: linear-gradient(0 deg,rgba(0,0,0,0.5) 0%,rgba(255,255,255));
+    transition: 0.3s;
+}
+
+.card:hover figcaption{
+    opacity: 1;
+    transform: scale(1.03);
+}
